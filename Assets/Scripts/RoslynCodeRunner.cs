@@ -29,7 +29,7 @@ public class RoslynCodeRunner : MonoBehaviour
         Logger.Instance.LogInfo("Executing RunCode...");
         try
         {
-            ScriptState<object> result = CSharpScript.EvaluateAsync(code, SetDefaultImports()).Result;
+            ScriptState<object> result = CSharpScript.RunAsync(code, SetDefaultImports()).Result;
             foreach(string var in resultVars)
             {
                 resultInfo += $"{result.GetVariable(var).Name}: {result.GetVariable(var).Value}\n";
